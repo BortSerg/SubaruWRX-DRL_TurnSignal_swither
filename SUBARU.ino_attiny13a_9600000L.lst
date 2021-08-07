@@ -1,0 +1,629 @@
+
+C:\Users\Serg\AppData\Local\Temp\arduino_build_929940/SUBARU.ino.elf:     file format elf32-avr
+
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+__vectors():
+   0:	09 c0       	rjmp	.+18     	; 0x14 <__ctors_end>
+   2:	af c0       	rjmp	.+350    	; 0x162 <__bad_interrupt>
+   4:	ae c0       	rjmp	.+348    	; 0x162 <__bad_interrupt>
+   6:	ad c0       	rjmp	.+346    	; 0x162 <__bad_interrupt>
+   8:	ac c0       	rjmp	.+344    	; 0x162 <__bad_interrupt>
+   a:	ab c0       	rjmp	.+342    	; 0x162 <__bad_interrupt>
+   c:	aa c0       	rjmp	.+340    	; 0x162 <__bad_interrupt>
+   e:	a9 c0       	rjmp	.+338    	; 0x162 <__bad_interrupt>
+  10:	d1 c0       	rjmp	.+418    	; 0x1b4 <__vector_8>
+  12:	a7 c0       	rjmp	.+334    	; 0x162 <__bad_interrupt>
+
+00000014 <__ctors_end>:
+__trampolines_start():
+  14:	11 24       	eor	r1, r1
+  16:	1f be       	out	0x3f, r1	; 63
+  18:	cf e9       	ldi	r28, 0x9F	; 159
+  1a:	cd bf       	out	0x3d, r28	; 61
+
+0000001c <__do_clear_bss>:
+__do_clear_bss():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2441
+  1c:	20 e0       	ldi	r18, 0x00	; 0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2442
+  1e:	a0 e6       	ldi	r26, 0x60	; 96
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2443
+  20:	b0 e0       	ldi	r27, 0x00	; 0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2444
+  22:	01 c0       	rjmp	.+2      	; 0x26 <.do_clear_bss_start>
+
+00000024 <.do_clear_bss_loop>:
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2446
+  24:	1d 92       	st	X+, r1
+
+00000026 <.do_clear_bss_start>:
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2448
+  26:	ac 36       	cpi	r26, 0x6C	; 108
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2449
+  28:	b2 07       	cpc	r27, r18
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2450
+  2a:	e1 f7       	brne	.-8      	; 0x24 <.do_clear_bss_loop>
+.do_clear_bss_start():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:69
+    out SREG, ZL
+    pop ZL
+    reti
+
+.section .init8
+    ldi r16, 1<<WDTIE
+  2c:	00 e4       	ldi	r16, 0x40	; 64
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:70
+    out WDTCR, r16
+  2e:	01 bd       	out	0x21, r16	; 33
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:71
+    sei
+  30:	78 94       	sei
+  32:	01 d0       	rcall	.+2      	; 0x36 <main>
+  34:	d0 c0       	rjmp	.+416    	; 0x1d6 <_exit>
+
+00000036 <main>:
+main():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:31
+  if(mode == OUTPUT) // Pin as output
+    DDRB |= _BV(pin);
+
+  else // Pin as input or input pullup
+  {
+    DDRB &= ~_BV(pin); // Set pin as input
+  36:	bb 98       	cbi	0x17, 3	; 23
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:33
+    if(mode == INPUT_PULLUP)
+      PORTB |= _BV(pin); // Enable pullup resistors
+  38:	c3 9a       	sbi	0x18, 3	; 24
+digitalWrite():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:47
+ * @param val The state to set. Valid options are HIGH or LOW
+ */
+void digitalWrite(uint8_t pin, uint8_t val)
+{
+  if(val)
+    PORTB |= _BV(pin);  // Set pin high
+  3a:	c3 9a       	sbi	0x18, 3	; 24
+pinMode():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:31
+  if(mode == OUTPUT) // Pin as output
+    DDRB |= _BV(pin);
+
+  else // Pin as input or input pullup
+  {
+    DDRB &= ~_BV(pin); // Set pin as input
+  3c:	bc 98       	cbi	0x17, 4	; 23
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:33
+    if(mode == INPUT_PULLUP)
+      PORTB |= _BV(pin); // Enable pullup resistors
+  3e:	c4 9a       	sbi	0x18, 4	; 24
+digitalWrite():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:47
+ * @param val The state to set. Valid options are HIGH or LOW
+ */
+void digitalWrite(uint8_t pin, uint8_t val)
+{
+  if(val)
+    PORTB |= _BV(pin);  // Set pin high
+  40:	c4 9a       	sbi	0x18, 4	; 24
+pinMode():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:27
+ *        INPUT_PULLUP - set pin as input and enable internal pullup resistor
+ */
+void pinMode(uint8_t pin, uint8_t mode)
+{
+  if(mode == OUTPUT) // Pin as output
+    DDRB |= _BV(pin);
+  42:	ba 9a       	sbi	0x17, 2	; 23
+digitalWrite():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:49
+void digitalWrite(uint8_t pin, uint8_t val)
+{
+  if(val)
+    PORTB |= _BV(pin);  // Set pin high
+  else
+    PORTB &= ~_BV(pin); // Set pin low
+  44:	c2 98       	cbi	0x18, 2	; 24
+pinMode():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:27
+ *        INPUT_PULLUP - set pin as input and enable internal pullup resistor
+ */
+void pinMode(uint8_t pin, uint8_t mode)
+{
+  if(mode == OUTPUT) // Pin as output
+    DDRB |= _BV(pin);
+  46:	b8 9a       	sbi	0x17, 0	; 23
+digitalWrite():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:49
+void digitalWrite(uint8_t pin, uint8_t val)
+{
+  if(val)
+    PORTB |= _BV(pin);  // Set pin high
+  else
+    PORTB &= ~_BV(pin); // Set pin low
+  48:	c2 98       	cbi	0x18, 2	; 24
+pinMode():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:27
+ *        INPUT_PULLUP - set pin as input and enable internal pullup resistor
+ */
+void pinMode(uint8_t pin, uint8_t mode)
+{
+  if(mode == OUTPUT) // Pin as output
+    DDRB |= _BV(pin);
+  4a:	b9 9a       	sbi	0x17, 1	; 23
+loop():
+D:\SUBARU/SUBARU.ino:70
+
+      for(;;){                                                          // вход в бесконечный цикл отслеживания работы поворота при работе ДХО
+       
+          if (digitalRead(IN_FLASH) == LOW && on_flag == false)  {
+              digitalWrite(OUT_FLASH, HIGH);                            //вкл поворота
+              on_flag = true;
+  4c:	11 e0       	ldi	r17, 0x01	; 1
+  4e:	01 e0       	ldi	r16, 0x01	; 1
+D:\SUBARU/SUBARU.ino:40
+    
+}
+
+void loop() {
+
+  if(digitalRead(IN_DHO) == LOW && digitalRead(IN_FLASH) == HIGH && DHO_ON == false){      // ВКЛ только ДХО
+  50:	83 e0       	ldi	r24, 0x03	; 3
+  52:	88 d0       	rcall	.+272    	; 0x164 <digitalRead>
+  54:	81 11       	cpse	r24, r1
+  56:	10 c0       	rjmp	.+32     	; 0x78 <__SREG__+0x39>
+  58:	c0 91 66 00 	lds	r28, 0x0066	; 0x800066 <DHO_ON>
+  5c:	84 e0       	ldi	r24, 0x04	; 4
+  5e:	82 d0       	rcall	.+260    	; 0x164 <digitalRead>
+  60:	81 30       	cpi	r24, 0x01	; 1
+  62:	51 f4       	brne	.+20     	; 0x78 <__SREG__+0x39>
+  64:	c1 11       	cpse	r28, r1
+  66:	08 c0       	rjmp	.+16     	; 0x78 <__SREG__+0x39>
+D:\SUBARU/SUBARU.ino:41
+      DHO_ON = true;      
+  68:	80 93 66 00 	sts	0x0066, r24	; 0x800066 <DHO_ON>
+D:\SUBARU/SUBARU.ino:42
+      FLASH_ON = false; 
+  6c:	10 92 65 00 	sts	0x0065, r1	; 0x800065 <FLASH_ON>
+digitalWrite():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:47
+ * @param val The state to set. Valid options are HIGH or LOW
+ */
+void digitalWrite(uint8_t pin, uint8_t val)
+{
+  if(val)
+    PORTB |= _BV(pin);  // Set pin high
+  70:	c2 9a       	sbi	0x18, 2	; 24
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:49
+  else
+    PORTB &= ~_BV(pin); // Set pin low
+  72:	c0 98       	cbi	0x18, 0	; 24
+loop():
+D:\SUBARU/SUBARU.ino:54
+        alarm = false;
+        } 
+      */
+      digitalWrite(OUT_DHO, HIGH);                                      // включения моста
+      digitalWrite(OUT_FLASH, LOW);    
+      analogWrite(PWM_OUT, PWM_DHO);                                    // напряжение для ДХО
+  74:	81 e1       	ldi	r24, 0x11	; 17
+  76:	81 d0       	rcall	.+258    	; 0x17a <analogWrite.constprop.0>
+D:\SUBARU/SUBARU.ino:57
+  }
+
+  if(digitalRead(IN_DHO) == LOW && digitalRead(IN_FLASH) == LOW && DHO_ON == true && FLASH_ON == false){       // ВКЛ  ДХО и включаем ПОВОРОТНИК или АВАРИЙКУ
+  78:	83 e0       	ldi	r24, 0x03	; 3
+  7a:	74 d0       	rcall	.+232    	; 0x164 <digitalRead>
+  7c:	81 11       	cpse	r24, r1
+  7e:	58 c0       	rjmp	.+176    	; 0x130 <__stack+0x91>
+  80:	c0 91 66 00 	lds	r28, 0x0066	; 0x800066 <DHO_ON>
+  84:	84 e0       	ldi	r24, 0x04	; 4
+  86:	6e d0       	rcall	.+220    	; 0x164 <digitalRead>
+  88:	81 11       	cpse	r24, r1
+  8a:	52 c0       	rjmp	.+164    	; 0x130 <__stack+0x91>
+  8c:	cc 23       	and	r28, r28
+  8e:	09 f4       	brne	.+2      	; 0x92 <__SREG__+0x53>
+  90:	4f c0       	rjmp	.+158    	; 0x130 <__stack+0x91>
+  92:	80 91 65 00 	lds	r24, 0x0065	; 0x800065 <FLASH_ON>
+  96:	81 11       	cpse	r24, r1
+  98:	4b c0       	rjmp	.+150    	; 0x130 <__stack+0x91>
+D:\SUBARU/SUBARU.ino:58
+      timer = 0;
+  9a:	10 92 61 00 	sts	0x0061, r1	; 0x800061 <timer>
+  9e:	10 92 62 00 	sts	0x0062, r1	; 0x800062 <timer+0x1>
+  a2:	10 92 63 00 	sts	0x0063, r1	; 0x800063 <timer+0x2>
+  a6:	10 92 64 00 	sts	0x0064, r1	; 0x800064 <timer+0x3>
+D:\SUBARU/SUBARU.ino:59
+      DHO_ON = false;
+  aa:	10 92 66 00 	sts	0x0066, r1	; 0x800066 <DHO_ON>
+D:\SUBARU/SUBARU.ino:60
+      FLASH_ON = true;
+  ae:	10 93 65 00 	sts	0x0065, r17	; 0x800065 <FLASH_ON>
+digitalWrite():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:49
+  b2:	c2 98       	cbi	0x18, 2	; 24
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:47
+ * @param val The state to set. Valid options are HIGH or LOW
+ */
+void digitalWrite(uint8_t pin, uint8_t val)
+{
+  if(val)
+    PORTB |= _BV(pin);  // Set pin high
+  b4:	c0 9a       	sbi	0x18, 0	; 24
+loop():
+D:\SUBARU/SUBARU.ino:64
+          
+      digitalWrite(OUT_DHO, LOW);                                       // включения моста
+      digitalWrite(OUT_FLASH, HIGH);  
+      analogWrite(PWM_OUT, PWM_FLASH);                                  // напряжение для ПОВОРОТА
+  b6:	85 e0       	ldi	r24, 0x05	; 5
+  b8:	60 d0       	rcall	.+192    	; 0x17a <analogWrite.constprop.0>
+D:\SUBARU/SUBARU.ino:68
+
+      for(;;){                                                          // вход в бесконечный цикл отслеживания работы поворота при работе ДХО
+       
+          if (digitalRead(IN_FLASH) == LOW && on_flag == false)  {
+  ba:	84 e0       	ldi	r24, 0x04	; 4
+  bc:	53 d0       	rcall	.+166    	; 0x164 <digitalRead>
+  be:	81 11       	cpse	r24, r1
+  c0:	07 c0       	rjmp	.+14     	; 0xd0 <__stack+0x31>
+  c2:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  c6:	81 11       	cpse	r24, r1
+  c8:	03 c0       	rjmp	.+6      	; 0xd0 <__stack+0x31>
+digitalWrite():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:47
+  ca:	c0 9a       	sbi	0x18, 0	; 24
+loop():
+D:\SUBARU/SUBARU.ino:70
+              digitalWrite(OUT_FLASH, HIGH);                            //вкл поворота
+              on_flag = true;
+  cc:	00 93 60 00 	sts	0x0060, r16	; 0x800060 <__DATA_REGION_ORIGIN__>
+D:\SUBARU/SUBARU.ino:72
+          }
+          if (digitalRead(IN_FLASH) == HIGH && on_flag == true) {  
+  d0:	84 e0       	ldi	r24, 0x04	; 4
+  d2:	48 d0       	rcall	.+144    	; 0x164 <digitalRead>
+  d4:	81 30       	cpi	r24, 0x01	; 1
+  d6:	81 f4       	brne	.+32     	; 0xf8 <__stack+0x59>
+  d8:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  dc:	88 23       	and	r24, r24
+  de:	61 f0       	breq	.+24     	; 0xf8 <__stack+0x59>
+digitalWrite():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:49
+  else
+    PORTB &= ~_BV(pin); // Set pin low
+  e0:	c0 98       	cbi	0x18, 0	; 24
+loop():
+D:\SUBARU/SUBARU.ino:74
+              digitalWrite(OUT_FLASH, LOW);                             //выкл поворота
+              on_flag = false;
+  e2:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
+millis():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring.c:38
+ * @return uint32_t Number of milliseconds passed since the program started
+ */
+uint32_t millis()
+{
+  uint32_t m;
+  asm volatile ("rcall _millis" : "=w" (m) :: "r30");
+  e6:	5f d0       	rcall	.+190    	; 0x1a6 <_millis>
+loop():
+D:\SUBARU/SUBARU.ino:75
+              timer = millis();
+  e8:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <timer>
+  ec:	90 93 62 00 	sts	0x0062, r25	; 0x800062 <timer+0x1>
+  f0:	a0 93 63 00 	sts	0x0063, r26	; 0x800063 <timer+0x2>
+  f4:	b0 93 64 00 	sts	0x0064, r27	; 0x800064 <timer+0x3>
+millis():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring.c:38
+  f8:	56 d0       	rcall	.+172    	; 0x1a6 <_millis>
+loop():
+D:\SUBARU/SUBARU.ino:78
+          }
+
+          if (millis()-timer >= delay_on_DHO && digitalRead(IN_FLASH) == HIGH && on_flag == false ){
+  fa:	40 91 61 00 	lds	r20, 0x0061	; 0x800061 <timer>
+  fe:	50 91 62 00 	lds	r21, 0x0062	; 0x800062 <timer+0x1>
+ 102:	60 91 63 00 	lds	r22, 0x0063	; 0x800063 <timer+0x2>
+ 106:	70 91 64 00 	lds	r23, 0x0064	; 0x800064 <timer+0x3>
+ 10a:	84 1b       	sub	r24, r20
+ 10c:	95 0b       	sbc	r25, r21
+ 10e:	a6 0b       	sbc	r26, r22
+ 110:	b7 0b       	sbc	r27, r23
+ 112:	8c 3d       	cpi	r24, 0xDC	; 220
+ 114:	95 40       	sbci	r25, 0x05	; 5
+ 116:	a1 05       	cpc	r26, r1
+ 118:	b1 05       	cpc	r27, r1
+ 11a:	78 f2       	brcs	.-98     	; 0xba <__stack+0x1b>
+ 11c:	84 e0       	ldi	r24, 0x04	; 4
+ 11e:	22 d0       	rcall	.+68     	; 0x164 <digitalRead>
+ 120:	81 30       	cpi	r24, 0x01	; 1
+ 122:	59 f6       	brne	.-106    	; 0xba <__stack+0x1b>
+ 124:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 128:	81 11       	cpse	r24, r1
+ 12a:	c7 cf       	rjmp	.-114    	; 0xba <__stack+0x1b>
+D:\SUBARU/SUBARU.ino:79
+          FLASH_ON = false;
+ 12c:	10 92 65 00 	sts	0x0065, r1	; 0x800065 <FLASH_ON>
+D:\SUBARU/SUBARU.ino:87
+       }
+
+       
+  }
+
+  if(digitalRead(IN_DHO) == HIGH && digitalRead(IN_FLASH) == LOW && DHO_ON == false && FLASH_ON == false){    // ВКЛ только ПОВОРОТ или АВАРИЙКА
+ 130:	83 e0       	ldi	r24, 0x03	; 3
+ 132:	18 d0       	rcall	.+48     	; 0x164 <digitalRead>
+ 134:	c8 2f       	mov	r28, r24
+ 136:	81 30       	cpi	r24, 0x01	; 1
+ 138:	09 f0       	breq	.+2      	; 0x13c <__stack+0x9d>
+ 13a:	8a cf       	rjmp	.-236    	; 0x50 <__SREG__+0x11>
+ 13c:	84 e0       	ldi	r24, 0x04	; 4
+ 13e:	12 d0       	rcall	.+36     	; 0x164 <digitalRead>
+ 140:	81 11       	cpse	r24, r1
+ 142:	86 cf       	rjmp	.-244    	; 0x50 <__SREG__+0x11>
+ 144:	80 91 66 00 	lds	r24, 0x0066	; 0x800066 <DHO_ON>
+ 148:	81 11       	cpse	r24, r1
+ 14a:	82 cf       	rjmp	.-252    	; 0x50 <__SREG__+0x11>
+ 14c:	80 91 65 00 	lds	r24, 0x0065	; 0x800065 <FLASH_ON>
+ 150:	81 11       	cpse	r24, r1
+ 152:	7e cf       	rjmp	.-260    	; 0x50 <__SREG__+0x11>
+D:\SUBARU/SUBARU.ino:90
+            
+      DHO_ON = false;
+      FLASH_ON = true;
+ 154:	c0 93 65 00 	sts	0x0065, r28	; 0x800065 <FLASH_ON>
+digitalWrite():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:49
+ 158:	c2 98       	cbi	0x18, 2	; 24
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:47
+ * @param val The state to set. Valid options are HIGH or LOW
+ */
+void digitalWrite(uint8_t pin, uint8_t val)
+{
+  if(val)
+    PORTB |= _BV(pin);  // Set pin high
+ 15a:	c0 9a       	sbi	0x18, 0	; 24
+loop():
+D:\SUBARU/SUBARU.ino:94
+      alarm = true;
+      digitalWrite(OUT_DHO, LOW);         // включения моста
+      digitalWrite(OUT_FLASH, HIGH);     // выключение произойдет отключением питания схемы
+      analogWrite(PWM_OUT, PWM_FLASH);    // напряжение для ПОВОРОТА
+ 15c:	85 e0       	ldi	r24, 0x05	; 5
+ 15e:	0d d0       	rcall	.+26     	; 0x17a <analogWrite.constprop.0>
+ 160:	77 cf       	rjmp	.-274    	; 0x50 <__SREG__+0x11>
+
+00000162 <__bad_interrupt>:
+__vector_1():
+ 162:	4e cf       	rjmp	.-356    	; 0x0 <__vectors>
+
+00000164 <digitalRead>:
+digitalRead():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:61
+ * @param pin The Arduino pin to read
+ * @return uint8_t State of the pin
+ */
+uint8_t digitalRead(uint8_t pin)
+{
+  return !!(PINB & _BV(pin));
+ 164:	26 b3       	in	r18, 0x16	; 22
+ 166:	30 e0       	ldi	r19, 0x00	; 0
+ 168:	a9 01       	movw	r20, r18
+ 16a:	02 c0       	rjmp	.+4      	; 0x170 <digitalRead+0xc>
+ 16c:	55 95       	asr	r21
+ 16e:	47 95       	ror	r20
+ 170:	8a 95       	dec	r24
+ 172:	e2 f7       	brpl	.-8      	; 0x16c <digitalRead+0x8>
+ 174:	ca 01       	movw	r24, r20
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:62
+}
+ 176:	81 70       	andi	r24, 0x01	; 1
+ 178:	08 95       	ret
+
+0000017a <analogWrite.constprop.0>:
+analogWrite.constprop.0():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_pwm.c:49
+      TCCR0B = _BV(CS02);
+    #elif defined(PWM_PRESCALER_1024)   // PWM frequency = (F_CPU/256) / 1024
+      TCCR0B = _BV(CS00) | _BV(CS02);
+    #else // (PWM_PRESCALER_AUTO)       // Automatic prescaler calculation
+      #if F_CPU >= 4800000L
+        TCCR0B = _BV(CS00) | _BV(CS01); // PWM frequency = (F_CPU/256) / 64
+ 17a:	93 e0       	ldi	r25, 0x03	; 3
+ 17c:	93 bf       	out	0x33, r25	; 51
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_pwm.c:57
+      #endif
+    #endif
+  #endif
+
+  // Set pin to output
+  DDRB |= _BV(pin);
+ 17e:	b9 9a       	sbi	0x17, 1	; 23
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_pwm.c:60
+
+  // Handle off condition
+  if(val == 0)
+ 180:	81 11       	cpse	r24, r1
+ 182:	05 c0       	rjmp	.+10     	; 0x18e <analogWrite.constprop.0+0x14>
+turnOffPWM():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_pwm.c:24
+void turnOffPWM(uint8_t pin)
+{
+  if(pin == 0)
+    TCCR0A &= ~_BV(COM0A1);
+  else
+    TCCR0A &= ~_BV(COM0B1);
+ 184:	8f b5       	in	r24, 0x2f	; 47
+ 186:	8f 7d       	andi	r24, 0xDF	; 223
+ 188:	8f bd       	out	0x2f, r24	; 47
+digitalWrite():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:49
+void digitalWrite(uint8_t pin, uint8_t val)
+{
+  if(val)
+    PORTB |= _BV(pin);  // Set pin high
+  else
+    PORTB &= ~_BV(pin); // Set pin low
+ 18a:	c1 98       	cbi	0x18, 1	; 24
+ 18c:	08 95       	ret
+analogWrite.constprop.0():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_pwm.c:67
+    turnOffPWM(pin);        // Turn off PWM
+    digitalWrite(pin, LOW); // Set pin low
+  }
+
+  // Handle on condition
+  else if(val == 255)
+ 18e:	8f 3f       	cpi	r24, 0xFF	; 255
+ 190:	29 f4       	brne	.+10     	; 0x19c <analogWrite.constprop.0+0x22>
+turnOffPWM():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_pwm.c:24
+void turnOffPWM(uint8_t pin)
+{
+  if(pin == 0)
+    TCCR0A &= ~_BV(COM0A1);
+  else
+    TCCR0A &= ~_BV(COM0B1);
+ 192:	8f b5       	in	r24, 0x2f	; 47
+ 194:	8f 7d       	andi	r24, 0xDF	; 223
+ 196:	8f bd       	out	0x2f, r24	; 47
+digitalWrite():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_digital.c:47
+ * @param val The state to set. Valid options are HIGH or LOW
+ */
+void digitalWrite(uint8_t pin, uint8_t val)
+{
+  if(val)
+    PORTB |= _BV(pin);  // Set pin high
+ 198:	c1 9a       	sbi	0x18, 1	; 24
+ 19a:	08 95       	ret
+analogWrite.constprop.0():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_pwm.c:92
+    {
+      // Set waveform generation mode and output number
+      #if defined(PWM_PHASE_CORRECT)
+        TCCR0A |= _BV(WGM00) | _BV(COM0B1);
+      #else // (PWM_FAST)
+        TCCR0A |= _BV(WGM00) | _BV(WGM01) | _BV(COM0B1);
+ 19c:	9f b5       	in	r25, 0x2f	; 47
+ 19e:	93 62       	ori	r25, 0x23	; 35
+ 1a0:	9f bd       	out	0x2f, r25	; 47
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_pwm.c:94
+      #endif
+      OCR0B = val;
+ 1a2:	89 bd       	out	0x29, r24	; 41
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/wiring_pwm.c:97
+    }
+  }
+}
+ 1a4:	08 95       	ret
+
+000001a6 <_millis>:
+_millis():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:36
+.section .text.millis
+
+; return millis counter ulong in r24:r27
+.global _millis
+_millis:
+    ldi ZL, lo8(wdt_millis_counter)
+ 1a6:	e7 e6       	ldi	r30, 0x67	; 103
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:37
+    cli
+ 1a8:	f8 94       	cli
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:38
+    ld r24, Z+
+ 1aa:	81 91       	ld	r24, Z+
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:39
+    ld r25, Z+
+ 1ac:	91 91       	ld	r25, Z+
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:40
+    ld r26, Z+
+ 1ae:	a1 91       	ld	r26, Z+
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:41
+    ld r27, Z+
+ 1b0:	b1 91       	ld	r27, Z+
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:42
+    reti
+ 1b2:	18 95       	reti
+
+000001b4 <__vector_8>:
+__vector_8():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:48
+
+#define tmp1 r16
+
+.global WDT_vect
+WDT_vect:
+    push ZL
+ 1b4:	ef 93       	push	r30
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:49
+    in ZL, SREG
+ 1b6:	ef b7       	in	r30, 0x3f	; 63
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:50
+    push ZL                             ; Save SREG
+ 1b8:	ef 93       	push	r30
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:51
+    push tmp1
+ 1ba:	0f 93       	push	r16
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:52
+    ldi ZL, lo8(wdt_millis_counter)
+ 1bc:	e7 e6       	ldi	r30, 0x67	; 103
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:53
+    ld tmp1, Z
+ 1be:	00 81       	ld	r16, Z
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:54
+    subi tmp1, -19                      ; Add 19 (not 16) because the WDT clock isn't really 128 kHz
+ 1c0:	0d 5e       	subi	r16, 0xED	; 237
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:55
+    rjmp save
+ 1c2:	02 c0       	rjmp	.+4      	; 0x1c8 <save>
+
+000001c4 <add1>:
+add1():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:57
+add1:
+    ld tmp1, Z
+ 1c4:	00 81       	ld	r16, Z
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:58
+    sbci tmp1, -1
+ 1c6:	0f 4f       	sbci	r16, 0xFF	; 255
+
+000001c8 <save>:
+save():
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:60
+save:
+    st Z+, tmp1
+ 1c8:	01 93       	st	Z+, r16
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:61
+    brcc add1
+ 1ca:	e0 f7       	brcc	.-8      	; 0x1c4 <add1>
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:62
+    pop tmp1
+ 1cc:	0f 91       	pop	r16
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:63
+    pop ZL
+ 1ce:	ef 91       	pop	r30
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:64
+    out SREG, ZL
+ 1d0:	ef bf       	out	0x3f, r30	; 63
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:65
+    pop ZL
+ 1d2:	ef 91       	pop	r30
+D:\Portable\arduino-1.8.13\portable\packages\MicroCore\hardware\avr\2.0.3\cores\microcore/millis.S:66
+    reti
+ 1d4:	18 95       	reti
+
+000001d6 <_exit>:
+exit():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
+ 1d6:	f8 94       	cli
+
+000001d8 <__stop_program>:
+__stop_program():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2280
+ 1d8:	ff cf       	rjmp	.-2      	; 0x1d8 <__stop_program>
